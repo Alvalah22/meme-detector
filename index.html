@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Meme Detector</title>
+<meta name="description" content="Biarkan AI mengenali ekspresi wajah dan gesturmu, lalu temukan meme yang paling sesuai. Semua diproses langsung di browser, tanpa mengirimkan data ke server.." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="titik" id="titikStatus"></span> Meme Detector</div>
+  <div class="kontrol">
+    <button id="btnKalibrasi" disabled>Kalibrasi ulang</button>
+    <button id="btnDebug" disabled>Info deteksi</button>
+    <button id="btnGantiKamera" disabled>Ganti kamera</button>
+    <button id="btnBantuan" disabled>Cara mainnya</button>
+    <button id="btnMatikan" class="bahaya tersembunyi">Matikan</button>
+  </div>
+</header>
+
+<section class="gerbang" id="gerbang">
+  <span class="label-kecil">Nggak Perlu Install Apa Pun</span>
+  <h1>Siap Mental Sebelum Klik Mulai</h1>
+  <p>Arahkan kamera ke wajahmu, lalu biarkan sistem mengenali ekspresi dan gestur yang kamu lakukan. Semua proses berjalan langsung di browser sehingga privasimu tetap terjaga.</p>
+  <button id="btnMulai" class="utama">Coba deteksi aku</button>
+  <p class="status-kecil" id="statusGerbang"></p>
+</section>
+
+<main class="panel-utama tersembunyi" id="panelUtama">
+  <div class="panel">
+    <div class="panel-label">Kamera Kamu</div>
+    <div class="kanvas-wrap kamera">
+      <canvas id="kanvasKamera"></canvas>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-label">Meme Terdeteksi</div>
+    <div class="kanvas-wrap">
+      <canvas id="kanvasMeme"></canvas>
+    </div>
+  </div>
+</main>
+
+<pre id="panelDebug" class="panel-debug tersembunyi"></pre>
+
+<video id="videoKamera" autoplay playsinline muted class="tersembunyi"></video>
+
+<footer id="footer" class="tersembunyi">
+  <span id="fpsLabel">FPS --</span>
+  <span class="pemisah">/</span>
+  <span>Diproses langsung di perangkatmu. Privasimu tetap terjaga.</span>
+</footer>
+
+<div class="modal tersembunyi" id="modalBantuan">
+  <div class="modal-isi">
+    <h2>Daftar gestur</h2>
+    <ul id="daftarGestur"></ul>
+    <button id="tutupBantuan">Tutup</button>
+  </div>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
